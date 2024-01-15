@@ -118,7 +118,7 @@ const Example = () => {
 
             <div className='flex flex-col lg:flex-row gap-2  px-2 py-2'>
                 <div className='w-full lg:w-1/4 relative'>
-                    <div className='bg-blue-300 rounded-md p-2 sticky top-0 h-screen'>
+                    <div className='bg-blue-300 rounded-md p-2 sticky top-0'>
                         <details className="collapse collapse-arrow bg-base-200 mb-2">
                             <summary className="collapse-title text-md font-medium">Fondo</summary>
                             <div className="collapse-content">
