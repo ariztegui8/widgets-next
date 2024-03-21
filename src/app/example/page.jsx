@@ -6,6 +6,7 @@ import Link from 'next/link'
 const Example = () => {
 
     const [forma, setForma] = useState('');
+    const [video, setVideo] = useState('')
     const [navegaror, setNavegator] = useState({
         logo: '',
         fondoNavbar: '#e5e7eb',
@@ -66,6 +67,10 @@ const Example = () => {
             ...banner,
             [e.target.name]: e.target.value
         })
+    }
+
+    const handleChangeVideo = e => {
+        setVideo(e.target.value)
     }
 
     const handleChangeNavigator = e => {
@@ -267,6 +272,20 @@ const Example = () => {
 
                             </div>
                         </details>
+
+                        <details className="collapse collapse-arrow bg-base-200 mb-2">
+                            <summary className="collapse-title text-md font-medium">Video</summary>
+                            <div className="collapse-content">
+                                <input
+                                    type="text"
+                                    placeholder="ID del video ej, TPKGBmGJCXw"
+                                    className="input input-bordered w-full mb-2"
+                                    name='video'
+                                    value={video}
+                                    onChange={handleChangeVideo}
+                                />
+                            </div>
+                        </details>
                     </div>
                 </div>
 
@@ -319,40 +338,48 @@ const Example = () => {
                         ))}
                     </div>
 
-                    <div className='grid grid-cols-4 px-10 py-10 bg-gray-200'>
-                        <div>
-                            <img className='w-[100px] h-[40px]' src={logo ? logo : 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Dragon_Ball_Z_Logo_A.png'} alt="" />
-                        </div>
-
-                        <div>
-                            <p className='text-lg font-medium mb-1'>Acerca de</p>
-                            <Link href="#"><p className='text-sm'>Prensa</p></Link>
-                            <Link href="#"><p className='text-sm'>Mapa</p></Link>
-                            <Link href="#"><p className='text-sm'>Condiciones</p></Link>
-                            <Link href="#"><p className='text-sm'>Política de privacidad</p></Link>
-                        </div>
-
-                        <div>
-                            <p className='text-lg font-medium mb-1'>Nosotros</p>
-                            <Link href="#" className='text-sm'>Blog<p></p></Link>
-                            <Link href="#" className='text-sm'>GitHub<p></p></Link>
-                            <Link href="#" className='text-sm'>Discord<p></p></Link>
-                            <Link href="#" className='text-sm'>Youtube<p></p></Link>
-                            
-                        </div>
-
-                        <div>
-                            <p className='text-lg font-medium mb-1'>Ayuda</p>
-                            <Link href="#" className='text-sm'><p>Contacto</p></Link>
-                            <Link href="#" className='text-sm'><p>Centro de ayuda</p></Link>
-                            <Link href="#" className='text-sm'><p>Empleo</p></Link>
-                        </div>
+                    {/* VIDEO */}
+                    <div className='w-full mb-16 flex items-center justify-center'>
+                        <iframe className='w-3/4 h-80' src={`https://www.youtube.com/embed/${video}`} title="TREMENDO ESPECTÁCULO dan Juan Ariztegui vs. &quot;La Villerita&quot; de Toloza - El Caldén 2023 | Cristian" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
                     </div>
 
-                    <div className='flex items-center justify-center gap-6 bg-gray-200 pb-10'>
-                        <Link href="#"><img className='w-8 h-8' src="assets/whatsapp.svg" alt="" /></Link>
-                        <Link href="#"><img className='w-8 h-8' src="assets/facebook.svg" alt="" /></Link>
-                        <Link href="#"><img className='w-8 h-8' src="assets/linkedin.svg" alt="" /></Link>
+                    {/* FOOTER */}
+                    <div>
+                        <div className='grid grid-cols-4 px-10 py-10 bg-gray-200'>
+                            <div>
+                                <img className='w-[100px] h-[40px]' src={logo ? logo : 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Dragon_Ball_Z_Logo_A.png'} alt="" />
+                            </div>
+
+                            <div>
+                                <p className='text-lg font-medium mb-1'>Acerca de</p>
+                                <Link href="#"><p className='text-sm'>Prensa</p></Link>
+                                <Link href="#"><p className='text-sm'>Mapa</p></Link>
+                                <Link href="#"><p className='text-sm'>Condiciones</p></Link>
+                                <Link href="#"><p className='text-sm'>Política de privacidad</p></Link>
+                            </div>
+
+                            <div>
+                                <p className='text-lg font-medium mb-1'>Nosotros</p>
+                                <Link href="#" className='text-sm'>Blog<p></p></Link>
+                                <Link href="#" className='text-sm'>GitHub<p></p></Link>
+                                <Link href="#" className='text-sm'>Discord<p></p></Link>
+                                <Link href="#" className='text-sm'>Youtube<p></p></Link>
+
+                            </div>
+
+                            <div>
+                                <p className='text-lg font-medium mb-1'>Ayuda</p>
+                                <Link href="#" className='text-sm'><p>Contacto</p></Link>
+                                <Link href="#" className='text-sm'><p>Centro de ayuda</p></Link>
+                                <Link href="#" className='text-sm'><p>Empleo</p></Link>
+                            </div>
+                        </div>
+
+                        <div className='flex items-center justify-center gap-6 bg-gray-200 pb-10'>
+                            <Link href="#"><img className='w-8 h-8' src="assets/whatsapp.svg" alt="" /></Link>
+                            <Link href="#"><img className='w-8 h-8' src="assets/facebook.svg" alt="" /></Link>
+                            <Link href="#"><img className='w-8 h-8' src="assets/linkedin.svg" alt="" /></Link>
+                        </div>
                     </div>
 
                 </div>
