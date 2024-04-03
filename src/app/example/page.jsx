@@ -123,13 +123,14 @@ const Example = () => {
 
             <div className='flex flex-col lg:flex-row gap-2  px-2 py-2'>
                 <div className='w-full lg:w-1/4 relative'>
-                    <div className='bg-blue-300 rounded-md p-2 sticky top-0'>
+                    <div className='bg-blue-300 rounded-md p-2 sticky top-0 h-lvh overflow-y-scroll custom-scrollbar'>
                         <details className="collapse collapse-arrow bg-base-200 mb-2">
                             <summary className="collapse-title text-md font-medium">Fondo</summary>
                             <div className="collapse-content">
                                 <div className='flex items-center justify-between gap-4 mb-2'>
                                     <p className='text-md font-semibold'>Color fondo:</p>
                                     <input
+                                        className='cursor-pointer'
                                         type="color"
                                         onChange={handleChangeNavigator}
                                         name="backgroundFondo"
@@ -151,6 +152,7 @@ const Example = () => {
                                 <div className='flex items-center justify-between gap-4 mb-2'>
                                     <p className='text-md font-semibold'>Color fondo:</p>
                                     <input
+                                        className='cursor-pointer'
                                         type="color"
                                         onChange={handleChangeNavigator}
                                         name="fondoNavbar"
@@ -160,6 +162,7 @@ const Example = () => {
                                 <div className='flex items-center justify-between gap-4 mb-2'>
                                     <p className='text-md font-semibold'>Color texto:</p>
                                     <input
+                                        className='cursor-pointer'
                                         type="color"
                                         onChange={handleChangeNavigator}
                                         name="colorText"
@@ -170,6 +173,7 @@ const Example = () => {
                                 <div className='flex items-center justify-between gap-4 mb-2'>
                                     <p className='text-md font-semibold'>Color boton:</p>
                                     <input
+                                        className='cursor-pointer'
                                         type="color"
                                         onChange={handleChangeNavigator}
                                         name="btnNavbar"
@@ -200,6 +204,7 @@ const Example = () => {
                                 <div className='flex items-center justify-between gap-4 mb-2'>
                                     <p className='text-md font-semibold'>Color title:</p>
                                     <input
+                                        className='cursor-pointer'
                                         type="color"
                                         onChange={handleChangeBanner}
                                         name="colorTitle"
@@ -218,6 +223,7 @@ const Example = () => {
                                 <div className='flex items-center justify-between gap-4 mb-2'>
                                     <p className='text-md font-semibold'>Color subtitle:</p>
                                     <input
+                                        className='cursor-pointer'
                                         type="color"
                                         onChange={handleChangeBanner}
                                         name="colorSubtitle"
@@ -236,6 +242,7 @@ const Example = () => {
                                 <div className='flex items-center justify-between gap-4 mb-2'>
                                     <p className='text-md font-semibold'>Color btn text:</p>
                                     <input
+                                        className='cursor-pointer'
                                         type="color"
                                         onChange={handleChangeBanner}
                                         name="colorBtnText"
@@ -246,6 +253,7 @@ const Example = () => {
                                 <div className='flex items-center justify-between gap-4 mb-2'>
                                     <p className='text-md font-semibold'>Color btn fondo:</p>
                                     <input
+                                        className='cursor-pointer'
                                         type="color"
                                         onChange={handleChangeBanner}
                                         name="colorBtnFondo"
@@ -312,7 +320,7 @@ const Example = () => {
                     </div>
 
                     {/* AVATARS */}
-                    <div className='flex justify-center gap-10 mb-16'>
+                    <div className='flex flex-col items-center justify-center gap-10 mb-16 md:flex-row md:items-start'>
                         {items.map(item => (
                             <div key={item.id} className={`w-40 h-40 shadow-lg bg-neutral-600 ${forma == 'redondo' ? 'rounded-full' : forma == 'cuadrado' ? 'w-40 h-40' : forma == 'rectangular' ? 'w-52' : ''}`}>
                                 <img className={`w-full h-full object-fill ${forma == 'redondo' ? 'rounded-full' : forma == 'cuadrado' ? 'w-40 h-40' : forma == 'rectangular' ? 'w-52' : ''}`} src={item.image} alt="" />
@@ -321,7 +329,7 @@ const Example = () => {
                     </div>
 
                     {/* CARDS */}
-                    <div className='flex justify-center gap-10 mb-16'>
+                    <div className='flex flex-col items-center justify-center gap-10 mb-16 md:flex-row md:items-start'>
                         {cards.map(card => (
                             <div key={card.id} className='shadow-lg w-72 rounded-md' >
                                 <div className='h-40'>
@@ -329,7 +337,7 @@ const Example = () => {
                                 </div>
                                 <div className='p-3'>
                                     <p className='text-lg font-semibold mb-3'>Lorem</p>
-                                    <p className='text-sm mb-3'>Lorem ipsun del asdhdnu asdu yhdasbu a</p>
+                                    <p className='text-sm mb-6'>Lorem ipsun del asdhdnu asdu yhdasbu a</p>
                                     <div className='flex justify-end'>
                                         <button className='bg-blue-300 py-2 px-4 rounded-md font-semibold'>Buton</button>
                                     </div>
@@ -339,14 +347,22 @@ const Example = () => {
                     </div>
 
                     {/* VIDEO */}
-                    <div className='w-full mb-16 flex items-center justify-center'>
-                        <iframe className='w-3/4 h-80' src={`https://www.youtube.com/embed/${video}`} title="TREMENDO ESPECTÁCULO dan Juan Ariztegui vs. &quot;La Villerita&quot; de Toloza - El Caldén 2023 | Cristian" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
-                    </div>
+                    {video ?
+                        <div className='w-full mb-16 flex items-center justify-center'>
+                            <iframe className='w-3/4 h-80' src={`https://www.youtube.com/embed/${video}`} title="TREMENDO ESPECTÁCULO dan Juan Ariztegui vs. &quot;La Villerita&quot; de Toloza - El Caldén 2023 | Cristian" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" allowfullscreen></iframe>
+                        </div>
+
+                        : 
+                       <div>
+                         <p className='m-auto text-center text-xl font-semibold mb-16'>Agregue un enlace para visualizar el video</p>
+                       </div>
+                    }
+
 
                     {/* FOOTER */}
                     <div>
-                        <div className='grid grid-cols-4 px-10 py-10 bg-gray-200'>
-                            <div>
+                        <div className='grid grid-cols-1 text-center gap-4 px-10 py-10 bg-gray-200 md:grid-cols-4 md:text-start'>
+                            <div className='m-auto md:m-0'>
                                 <img className='w-[100px] h-[40px]' src={logo ? logo : 'https://upload.wikimedia.org/wikipedia/commons/f/f2/Dragon_Ball_Z_Logo_A.png'} alt="" />
                             </div>
 
