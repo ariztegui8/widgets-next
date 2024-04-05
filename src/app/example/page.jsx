@@ -275,13 +275,6 @@ const Example = () => {
                         </details>
 
                         <details className="collapse collapse-arrow bg-base-200 mb-2">
-                            <summary className="collapse-title text-md font-medium">Footer</summary>
-                            <div className="collapse-content">
-
-                            </div>
-                        </details>
-
-                        <details className="collapse collapse-arrow bg-base-200 mb-2">
                             <summary className="collapse-title text-md font-medium">Video</summary>
                             <div className="collapse-content">
                                 <input
@@ -294,6 +287,15 @@ const Example = () => {
                                 />
                             </div>
                         </details>
+
+                        <details className="collapse collapse-arrow bg-base-200 mb-2">
+                            <summary className="collapse-title text-md font-medium">Footer</summary>
+                            <div className="collapse-content">
+
+                            </div>
+                        </details>
+
+                       
                     </div>
                 </div>
 
